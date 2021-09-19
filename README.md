@@ -1,5 +1,5 @@
 # Rsubsettingtutorial
-how to subset datasets in R!
+How to subset datasets in R!
 
 Subsetting data in R allows you to select specific variables in a dataset. We can subset data based on variable, column, and many other things.
 
