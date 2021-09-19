@@ -3,6 +3,8 @@ How to subset datasets in R!
 
 Subsetting data in R allows you to select specific variables in a dataset. We can subset data based on variable, column, and many other things.
 
+Dataframes are often used to refer to subsets, although the two terms cannot be used interchangeably. A dataframe is used to store data, which is essentially what we are doing by subsetting, only if we assign the subset a variable name. 
+
 ## Import Dataset
 For this example, I am going to use the collegedata.csv, which you can download with this Dropbox link: https://www.dropbox.com/s/vqu6djotrt2q7ur/collegedata.csv?dl=0
 
@@ -26,16 +28,16 @@ View(tiertwo)
 ```
 Here, we have created two variables that only include datapoints that have a college tier one or two, respectively. This can be useful in trying to dial in more specifically within a variable.
 
+Notice how instead of a singular equals, `=`, we used two `==` equals signs. One equals sign is usually used when assigning a variable, but two equals signs tells the computer that we are comparing the left and the right, and in the subsetting case, this tells the computer to only pull college tiers that are equal to 1, or whatever value we set it equal to. This can also be used with non-numerical values.  
+
 `View(tiertwo)` this allows us to see the new dataset we have created in a sheet format, similar to an Excel file. R is case sensitive, so make sure you capitalize `View()` or else it will return a different, unrelated argument.
 
-## Assigning multiple rows to a singular subset argument
-
-We want to subset the data by college tier so that instead of using multiple variables, therefore multiple functions,
-we can subset the college tiers into bigger groups and use those variables.
+## Subsetting multiple rows together
+For this example, we are going to subset the data by college tiers, so that instead of using multiple variables, therefore many more functions, we can subset the college tiers into bigger groups and use those dataframes with more datapoints. 
 
 We can group the tiers from 1-3, 4-6, 7-9, and 14
 
-The collegetier column is already sorted numerically, so we can just choose the columns
+The `collegetier` column is already sorted numerically, so we can just choose the columns
 we want by pulling those and assigning them a name
 
 ``` r
