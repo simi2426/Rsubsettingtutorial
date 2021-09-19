@@ -61,7 +61,7 @@ data from columns 1 - 7 into the variable, so we keep that in the new variable w
 
 If your data is not sorted, you can sort it in Excel, or we can use another way:
 
-## METHOD 2
+## Subset with a singular factor
 There is another method to doing this, which is useful if we are only drawing a singular factor out of the dataset, such as only wanting to pull rows that include a college tier of 2, or 4.
 
 ```r
@@ -118,13 +118,14 @@ View(tenrandom)
 
 `replace = FALSE` ensures that there is no replacement in our sample
 
-`view(random)` allows us to view our new subset like an Excel file, in sheet form.
+`View(random)` allows us to view our new subset like an Excel file, in sheet form. Make sure to capitalize the V!
 
 ## Subsetting Columns
 Say we want to create a dataset without some of the columns included in the main dataset. For this example, let's say we only wanted to include the rows that include the college tier and quintiles. To do that, we use brackets. First, we want to find the numbers that correspond to our row names:
 
 ```r
-> names(college)
+names(college)
+# this is what the function will return
 [1] "collegetier" "pmean"       "kmean"      
 [4] "kq1"         "kq2"         "kq3"        
 [7] "kq4"         "kq5" 
@@ -135,7 +136,7 @@ Now, we can see the numbers that correspond to our row names. For this example, 
 ```r
 onlyquintiles = college[, c(1, 4, 5, 6, 7, 8)]
 view(onlyquintiles)
-# or
+# 4:8 tells the computer to read colums 4 to 8, it is purely a style thing
 quintiles = college[, c(1, 4:8)]
 view(quintiles)
 ```
