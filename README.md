@@ -20,11 +20,13 @@ tierone = subset(college, collegetier == "1")
 # lets subset all datapoints from the second college tier
 tiertwo = subset(college, collegetier == "2")
 
-view(tiertwo)
+# view new dataframes in sheet format
+View(tierone)
+View(tiertwo)
 ```
 Here, we have created two variables that only include datapoints that have a college tier one or two, respectively. This can be useful in trying to dial in more specifically within a variable.
 
-`view(tiertwo)` this allows us to see the new dataset we have created in a sheet format, similar to an Excel file.
+`View(tiertwo)` this allows us to see the new dataset we have created in a sheet format, similar to an Excel file. R is case sensitive, so make sure you capitalize `View()` or else it will return a different, unrelated argument.
 
 ## Assigning multiple rows to a singular subset argument
 
