@@ -61,16 +61,6 @@ data from columns 1 - 7 into the variable, so we keep that in the new variable w
 
 If your data is not sorted, you can sort it in Excel, or we can use another way:
 
-``` r
-tierone = subset(college, collegetier <= 3 | kmean <= 90000)
-
-```
-Now, `tierone` contains all colleges in tiers from 1-3, and from those rows, 
-only contains observations where the mean income of the child is equal to 
-or less than $90,0000. We can use `<=` `==` `>=` for other functions as well. There are many
-ways to subset data, and even packages, such as the `dplyr` package, which allows for more
-intuitive ways to subset rather than what is included in the base R package.
-
 ## METHOD 2
 There is another method to doing this, which is useful if we are only drawing a singular factor out of the dataset, such as only wanting to pull rows that include a college tier of 2, or 4.
 
@@ -103,12 +93,25 @@ write = subset(college, pmean >= 450000 & kmean > 20000)
 
 Now, `write` will only include datapoints where the mean parental income is greater than $450,000 and the child's mean income is greater than $20,000.
 
+``` r
+tierone = subset(college, collegetier <= 3 | kmean <= 90000)
+
+```
+
+We can also use more than one variable. Here, `tierone` will now contain observations who have colleges in tiers 1-3, and where the child's mean income is equal or less than $90,000. We can use `<=` `==` `>=` for other functions as well. There are many ways to subset data, and even packages, such as the `dplyr` package, which allows for more intuitive ways to subset rather than what is included in the base R package.
+
 ## Random Sampling
 Say we want to take n random samples from this large dataset. To do that, we use the `sample_n()` function. Let's take 10 random rows from the `college` dataset:
 
 ``` r
+# load dplyr library
+library(dplyr)
+
+# assign tenrandom to a random sample of ten random rows from this dataset
 tenrandom = college %>% sample_n(10, replace = FALSE)
-view(tenrandom)
+
+# view data observations
+View(tenrandom)
 ```
 
 `tenrandom` is the name we have assigned our subset of ten random rows.
